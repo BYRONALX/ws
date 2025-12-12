@@ -6,10 +6,10 @@
 const http = require('http');
 
 const options = {
-  host: 'localhost',
+  host: '127.0.0.1',
   port: process.env.PORT || 8080,
   path: '/api/health',
-  timeout: 2000
+  timeout: 10000
 };
 
 const healthCheck = http.request(options, (res) => {
