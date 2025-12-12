@@ -1,0 +1,73 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - DB_DIALECT=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASS=postgres
+      - DB_NAME=whaticket
+      - REDIS_URI=redis://:123456@redis:6379
+      - REDIS_OPT_LIMITER_MAX=1
+      - REDIS_OPT_LIMITER_DURATION=3000
+      - JWT_SECRET=3123123213123
+      - JWT_REFRESH_SECRET=123123123123
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./backend/src/public:/usr/src/app/public
+      - whaticket_backend_data:/usr/src/app/.wwebjs_auth
+    networks:
+      - whaticket-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - REACT_APP_BACKEND_URL=http://localhost:8080
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - whaticket-network
+
+  db:
+    image: postgres:14-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=whaticket
+    volumes:
+      - whaticket_pg_data:/var/lib/postgresql/data
+    networks:
+      - whaticket-network
+
+  redis:
+    image: redis:6-alpine
+    restart: always
+    command: [ "redis-server", "--requirepass", "123456" ]
+    volumes:
+      - whaticket_redis_data:/data
+    networks:
+      - whaticket-network
+
+networks:
+  whaticket-network:
+    driver: bridge
+
+volumes:
+  whaticket_backend_data:
+  whaticket_pg_data:
+  whaticket_redis_data:
