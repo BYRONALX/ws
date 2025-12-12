@@ -1,15 +1,15 @@
 # ============================================
 # Stage 1: Builder
 # ============================================
-FROM node:16-bullseye AS builder
+FROM node:20-bullseye AS builder
 
 WORKDIR /usr/src/app
 
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production && npm cache clean --force
+# Install dependencies (including devDependencies for build)
+RUN npm install && npm cache clean --force
 
 # Copy source code
 COPY . .
@@ -20,7 +20,7 @@ RUN npm run build
 # ============================================
 # Stage 2: Production
 # ============================================
-FROM node:16-bullseye-slim
+FROM node:20-bullseye-slim
 
 # Install system dependencies for Puppeteer and PostgreSQL client
 RUN apt-get update \

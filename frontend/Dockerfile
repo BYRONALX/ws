@@ -1,15 +1,15 @@
 # ============================================
 # Stage 1: Build
 # ============================================
-FROM node:16-alpine AS build
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies using npm ci for reproducible builds
-RUN npm ci --silent && npm cache clean --force
+# Install dependencies using npm install
+RUN npm install --silent && npm cache clean --force
 
 # Copy source code
 COPY . .
@@ -23,6 +23,8 @@ ARG REACT_APP_FACEBOOK_APP_ID
 ENV REACT_APP_BACKEND_URL=$REACT_APP_BACKEND_URL
 ENV REACT_APP_HOURS_CLOSE_TICKETS_AUTO=$REACT_APP_HOURS_CLOSE_TICKETS_AUTO
 ENV REACT_APP_FACEBOOK_APP_ID=$REACT_APP_FACEBOOK_APP_ID
+# Fix for OpenSSL 3.0 compatibility with React Scripts 3.x
+ENV NODE_OPTIONS=--openssl-legacy-provider
 
 # Build the application
 RUN npm run build

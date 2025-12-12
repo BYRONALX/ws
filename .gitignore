@@ -3,14 +3,59 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# ============================================
+# Node.js / Docker / WhaTicket Specific
+# ============================================
+
+# Environment files (CRITICAL - never commit!)
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.production
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Docker volumes data (if mounted locally)
+.wwebjs_auth/
+public/uploads/
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ============================================
+# Visual Studio / C# (original)
+# ============================================
+
 # User-specific files
 *.rsuser
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
-*.txt
-*.pdf
+# REMOVED: *.txt - we need .txt files for documentation!
+# REMOVED: *.pdf - we need .pdf files for documentation!
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
