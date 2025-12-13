@@ -7,7 +7,9 @@ const planRoutes = express.Router();
 
 planRoutes.get("/plans", isAuth, PlanController.index);
 
+planRoutes.get("/plans/log", PlanController.log);
 planRoutes.get("/plans/list", PlanController.list);
+
 
 planRoutes.get("/plans/all", PlanController.list);
 

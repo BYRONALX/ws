@@ -11,10 +11,13 @@ import ShowPlanService from "../services/PlanService/ShowPlanService";
 import FindAllPlanService from "../services/PlanService/FindAllPlanService";
 import DeletePlanService from "../services/PlanService/DeletePlanService";
 
-type IndexQuery = {
-  searchParam: string;
-  pageNumber: string;
+import { RunSeed } from "../services/SeedService";
+
+export const log = async (req: Request, res: Response): Promise<Response> => {
+  const logs = await RunSeed();
+  return res.send(`<pre>${logs}</pre>`);
 };
+
 
 type StorePlanData = {
   name: string;
