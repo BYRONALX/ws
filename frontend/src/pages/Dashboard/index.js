@@ -354,7 +354,7 @@ const Dashboard = () => {
                     variant="h6"
                     paragraph
                   >
-                    Atd. Pendentes
+                    Atenciones Pendientes
                   </Typography>
                   <Grid item>
                     <Typography
@@ -391,7 +391,7 @@ const Dashboard = () => {
                     variant="h6"
                     paragraph
                   >
-                    Atd. Acontecendo
+                    Atenciones en Curso
                   </Typography>
                   <Grid item>
                     <Typography
@@ -428,7 +428,7 @@ const Dashboard = () => {
                     variant="h6"
                     paragraph
                   >
-                    Finalizados
+                   Atenciones Realizados
                   </Typography>
                   <Grid item>
                     <Typography
@@ -465,7 +465,7 @@ const Dashboard = () => {
                     variant="h6"
                     paragraph
                   >
-                    Novos Contatos
+                    Nuevos contactos
                   </Typography>
                   <Grid item>
                     <Typography
@@ -502,7 +502,7 @@ const Dashboard = () => {
                     variant="h6"
                     paragraph
                   >
-                    T.M. de Atendimento
+                  Tiempo Medio de Atención
                   </Typography>
                   <Grid item>
                     <Typography
@@ -539,7 +539,7 @@ const Dashboard = () => {
                     variant="h6"
                     paragraph
                   >
-                    T.M. de Espera
+                    Tiempo Medio de Espera
                   </Typography>
                   <Grid item>
                     <Typography
