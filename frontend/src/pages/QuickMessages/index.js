@@ -80,7 +80,7 @@ function QuickMessages(props) {
     try {
       await saveMessage(message);
       await loadingQuickMessages();
-      toast.success("Messagem adicionada com sucesso.");
+      toast.success("Mensaje añadido con éxito.");
     } catch (e) {
       toast.error(e);
     }
@@ -91,7 +91,7 @@ function QuickMessages(props) {
     try {
       await updateMessage(message);
       await loadingQuickMessages();
-      toast.success("Messagem atualizada com sucesso.");
+      toast.success("Mensaje actualizado con éxito.");
     } catch (e) {
       toast.error(e);
     }
@@ -102,7 +102,7 @@ function QuickMessages(props) {
     try {
       await deleteMessage(message.id);
       await loadingQuickMessages();
-      toast.success("Messagem excluída com sucesso.");
+      toast.success("Mensaje eliminado con éxito.");
     } catch (e) {
       toast.error(e);
     }
@@ -138,14 +138,14 @@ function QuickMessages(props) {
         saveMessage={handleSave}
       />
       <ConfirmationModal
-        title="Excluir Registro"
+        title="Eliminar Registro"
         open={showOnDeleteDialog}
         onClose={setShowOnDeleteDialog}
         onConfirm={async () => {
           await handleDelete(messageSelected);
         }}
       >
-        Deseja realmente excluir este registro?
+        ¿Realmente desea eliminar este registro?
       </ConfirmationModal>
     </MainContainer>
   );
