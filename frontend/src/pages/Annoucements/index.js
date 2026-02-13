@@ -193,10 +193,10 @@ const Announcements = () => {
       return "Alta";
     }
     if (val === 2) {
-      return "Média";
+      return "Media";
     }
     if (val === 3) {
-      return "Baixa";
+      return "Baja";
     }
   };
 
@@ -296,10 +296,10 @@ const Announcements = () => {
                     {translatePriority(announcement.priority)}
                   </TableCell>
                   <TableCell align="center">
-                    {announcement.mediaName ?? "Sem anexo"}
+                    {announcement.mediaName ?? "Sin archivo adjunto"}
                   </TableCell>
                   <TableCell align="center">
-                    {announcement.status ? "ativo" : "inativo"}
+                    {announcement.status ? "activo" : "inactivo"}
                   </TableCell>
                   <TableCell align="center">
                     <IconButton
@@ -329,5 +329,6 @@ const Announcements = () => {
     </MainContainer>
   );
 };
+
 
 export default Announcements;
