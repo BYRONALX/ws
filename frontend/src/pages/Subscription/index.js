@@ -86,8 +86,8 @@ const Contacts = () => {
           <div>
             <TextField
               id="outlined-full-width"
-              label="Período de teste"
-              defaultValue={`Seu período de teste termina em ${_formatDate(user?.company?.trialExpiration)} dias!`}
+              label="Período de prueba"
+              defaultValue={`¡Tu período de prueba termina en ${_formatDate(user?.company?.trialExpiration)} días!`}
               fullWidth
               margin="normal"
               InputLabelProps={{
@@ -104,7 +104,7 @@ const Contacts = () => {
           <div>
             <TextField
               id="outlined-full-width"
-              label="Email de cobrança"
+              label="Correo electrónico de facturación"
               defaultValue={user?.company?.email}
               fullWidth
               margin="normal"
@@ -126,7 +126,7 @@ const Contacts = () => {
               onClick={handleOpenContactModal}
               fullWidth
             >
-              Assine Agora!
+              ¡Suscríbete ahora!
             </Button>
           </div>
 
