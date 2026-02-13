@@ -202,11 +202,11 @@ const Campaigns = () => {
   const formatStatus = (val) => {
     switch (val) {
       case "INATIVA":
-        return "Inativa";
+        return "Inactiva";
       case "PROGRAMADA":
         return "Programada";
       case "EM_ANDAMENTO":
-        return "Em Andamento";
+        return "En Proceso";
       case "CANCELADA":
         return "Cancelada";
       case "FINALIZADA":
@@ -345,31 +345,31 @@ const Campaigns = () => {
                   <TableCell align="center">
                     {campaign.contactListId
                       ? campaign.contactList.name
-                      : "Não definida"}
+                      : "No definida"}
                   </TableCell>
                   <TableCell align="center">
                     {campaign.whatsappId
                       ? campaign.whatsapp.name
-                      : "Não definido"}
+                      : "No definido"}
                   </TableCell>
                   <TableCell align="center">
                     {campaign.scheduledAt
                       ? datetimeToClient(campaign.scheduledAt)
-                      : "Sem agendamento"}
+                      : "Sin programación"}
                   </TableCell>
                   <TableCell align="center">
                     {campaign.completedAt
                       ? datetimeToClient(campaign.completedAt)
-                      : "Não concluída"}
+                      : "No completada"}
                   </TableCell>
                   <TableCell align="center">
-                    {campaign.confirmation ? "Habilitada" : "Desabilitada"}
+                    {campaign.confirmation ? "Habilitada" : "Deshabilitada"}
                   </TableCell>
                   <TableCell align="center">
                     {campaign.status === "EM_ANDAMENTO" && (
                       <IconButton
                         onClick={() => cancelCampaign(campaign)}
-                        title="Parar Campanha"
+                        title="Detener Campaña"
                         size="small"
                       >
                         <PauseCircleOutlineIcon />
@@ -378,7 +378,7 @@ const Campaigns = () => {
                     {campaign.status === "CANCELADA" && (
                       <IconButton
                         onClick={() => restartCampaign(campaign)}
-                        title="Parar Campanha"
+                        title="Reiniciar Campaña"
                         size="small"
                       >
                         <PlayCircleOutlineIcon />
@@ -419,5 +419,6 @@ const Campaigns = () => {
     </MainContainer>
   );
 };
+
 
 export default Campaigns;
