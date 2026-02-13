@@ -83,18 +83,17 @@ const Invoices = () => {
   const [selectedContactId, setSelectedContactId] = useState(null);
   const [contactModalOpen, setContactModalOpen] = useState(false);
 
-
   const handleOpenContactModal = (invoices) => {
     setStoragePlans(invoices);
     setSelectedContactId(null);
     setContactModalOpen(true);
   };
 
-
   const handleCloseContactModal = () => {
     setSelectedContactId(null);
     setContactModalOpen(false);
   };
+
   useEffect(() => {
     dispatch({ type: "RESET" });
     setPageNumber(1);
@@ -120,7 +119,6 @@ const Invoices = () => {
     return () => clearTimeout(delayDebounceFn);
   }, [searchParam, pageNumber]);
 
-
   const loadMore = () => {
     setPageNumber((prevState) => prevState + 1);
   };
@@ -132,6 +130,7 @@ const Invoices = () => {
       loadMore();
     }
   };
+
   const rowStyle = (record) => {
     const hoje = moment(moment()).format("DD/MM/yyyy");
     const vencimento = moment(record.dueDate).format("DD/MM/yyyy");
@@ -149,15 +148,14 @@ const Invoices = () => {
     var dias = moment.duration(diff).asDays();    
     const status = record.status;
     if (status === "paid") {
-      return "Pago";
+      return "Pagado";
     }
     if (dias < 0) {
       return "Vencido";
     } else {
-      return "Em Aberto"
+      return "Pendiente"
     }
-
-  }
+  };
 
   return (
     <MainContainer>
@@ -167,10 +165,9 @@ const Invoices = () => {
         aria-labelledby="form-dialog-title"
         Invoice={storagePlans}
         contactId={selectedContactId}
-
       ></SubscriptionModal>
       <MainHeader>
-        <Title>Faturas</Title>
+        <Title>Facturas</Title>
       </MainHeader>
       <Paper
         className={classes.mainPaper}
@@ -181,11 +178,11 @@ const Invoices = () => {
           <TableHead>
             <TableRow>
               <TableCell align="center">Id</TableCell>
-              <TableCell align="center">Detalhes</TableCell>
+              <TableCell align="center">Detalles</TableCell>
               <TableCell align="center">Valor</TableCell>
-              <TableCell align="center">Data Venc.</TableCell>
-              <TableCell align="center">Status</TableCell>
-              <TableCell align="center">Ação</TableCell>
+              <TableCell align="center">Fecha de Vencimiento</TableCell>
+              <TableCell align="center">Estado</TableCell>
+              <TableCell align="center">Acción</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -198,7 +195,7 @@ const Invoices = () => {
                   <TableCell align="center">{moment(invoices.dueDate).format("DD/MM/YYYY")}</TableCell>
                   <TableCell style={{ fontWeight: 'bold' }} align="center">{rowStatus(invoices)}</TableCell>
                   <TableCell align="center">
-                    {rowStatus(invoices) !== "Pago" ?
+                    {rowStatus(invoices) !== "Pagado" ?
                       <Button
                         size="small"
                         variant="outlined"
@@ -210,12 +207,9 @@ const Invoices = () => {
                       <Button
                         size="small"
                         variant="outlined" 
-                        /* color="secondary"
-                        disabled */
                       >
-                        PAGO 
+                        PAGADO 
                       </Button>}
-
                   </TableCell>
                 </TableRow>
               ))}
