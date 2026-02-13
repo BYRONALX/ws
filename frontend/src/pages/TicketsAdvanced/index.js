@@ -63,7 +63,7 @@ const TicketAdvanced = (props) => {
 		return <Box className={classes.placeholderContainer}>
             <div className={classes.placeholderItem}>{i18n.t("chat.noTicketMessage")}</div><br />
             <Button onClick={() => setOption(1)} variant="contained" color="primary">
-                Selecionar Ticket
+                Seleccionar Ticket
             </Button>
         </Box>
 	}
@@ -91,7 +91,7 @@ const TicketAdvanced = (props) => {
                     className={classes.root}
                 >
                     <BottomNavigationAction label="Ticket" icon={<ChatIcon />} />
-                    <BottomNavigationAction label="Atendimentos" icon={<QuestionAnswerIcon />} />
+                    <BottomNavigationAction label="Servicios" icon={<QuestionAnswerIcon />} />
                 </BottomNavigation>
             </Box>
             <Box className={classes.content}>
