@@ -142,17 +142,17 @@ const CampaignsConfig = () => {
                 fullWidth
               >
                 <InputLabel id="messageInterval-label">
-                  Intervalo Randômico de Disparo
+                  Intervalo Aleatorio de Envío
                 </InputLabel>
                 <Select
                   name="messageInterval"
                   id="messageInterval"
                   labelId="messageInterval-label"
-                  label="Intervalo Randômico de Disparo"
+                  label="Intervalo Aleatorio de Envío"
                   value={settings.messageInterval}
                   onChange={(e) => handleOnChangeSettings(e)}
                 >
-                  <MenuItem value={0}>Sem Intervalo</MenuItem>
+                  <MenuItem value={0}>Sin Intervalo</MenuItem>
                   <MenuItem value={5}>5 segundos</MenuItem>
                   <MenuItem value={10}>10 segundos</MenuItem>
                   <MenuItem value={15}>15 segundos</MenuItem>
@@ -167,21 +167,21 @@ const CampaignsConfig = () => {
                 fullWidth
               >
                 <InputLabel id="longerIntervalAfter-label">
-                  Intervalo Maior Após
+                  Intervalo Mayor Después de
                 </InputLabel>
                 <Select
                   name="longerIntervalAfter"
                   id="longerIntervalAfter"
                   labelId="longerIntervalAfter-label"
-                  label="Intervalo Maior Após"
+                  label="Intervalo Mayor Después de"
                   value={settings.longerIntervalAfter}
                   onChange={(e) => handleOnChangeSettings(e)}
                 >
-                  <MenuItem value={0}>Não definido</MenuItem>
-                  <MenuItem value={5}>5 mensagens</MenuItem>
-                  <MenuItem value={10}>10 mensagens</MenuItem>
-                  <MenuItem value={15}>15 mensagens</MenuItem>
-                  <MenuItem value={20}>20 mensagens</MenuItem>
+                  <MenuItem value={0}>No definido</MenuItem>
+                  <MenuItem value={5}>5 mensajes</MenuItem>
+                  <MenuItem value={10}>10 mensajes</MenuItem>
+                  <MenuItem value={15}>15 mensajes</MenuItem>
+                  <MenuItem value={20}>20 mensajes</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -192,17 +192,17 @@ const CampaignsConfig = () => {
                 fullWidth
               >
                 <InputLabel id="greaterInterval-label">
-                  Intervalo de Disparo Maior
+                  Intervalo de Envío Mayor
                 </InputLabel>
                 <Select
                   name="greaterInterval"
                   id="greaterInterval"
                   labelId="greaterInterval-label"
-                  label="Intervalo de Disparo Maior"
+                  label="Intervalo de Envío Mayor"
                   value={settings.greaterInterval}
                   onChange={(e) => handleOnChangeSettings(e)}
                 >
-                  <MenuItem value={0}>Sem Intervalo</MenuItem>
+                  <MenuItem value={0}>Sin Intervalo</MenuItem>
                   <MenuItem value={20}>20 segundos</MenuItem>
                   <MenuItem value={30}>30 segundos</MenuItem>
                   <MenuItem value={40}>40 segundos</MenuItem>
@@ -217,21 +217,21 @@ const CampaignsConfig = () => {
                 color="primary"
                 style={{ marginRight: 10 }}
               >
-                Adicionar Variável
+                Añadir Variable
               </Button>
               <Button
                 onClick={saveSettings}
                 color="primary"
                 variant="contained"
               >
-                Salvar Configurações
+                Guardar Configuraciones
               </Button>
             </Grid>
             {showVariablesForm && (
               <>
                 <Grid xs={12} md={6} item>
                   <TextField
-                    label="Atalho"
+                    label="Atajo"
                     variant="outlined"
                     value={variable.key}
                     name="key"
@@ -241,7 +241,7 @@ const CampaignsConfig = () => {
                 </Grid>
                 <Grid xs={12} md={6} item>
                   <TextField
-                    label="Conteúdo"
+                    label="Contenido"
                     variant="outlined"
                     value={variable.value}
                     name="value"
@@ -255,14 +255,14 @@ const CampaignsConfig = () => {
                     color="primary"
                     style={{ marginRight: 10 }}
                   >
-                    Fechar
+                    Cerrar
                   </Button>
                   <Button
                     onClick={addVariable}
                     color="primary"
                     variant="contained"
                   >
-                    Adicionar
+                    Añadir
                   </Button>
                 </Grid>
               </>
@@ -273,8 +273,8 @@ const CampaignsConfig = () => {
                   <TableHead>
                     <TableRow>
                       <TableCell style={{ width: "1%" }}></TableCell>
-                      <TableCell>Atalho</TableCell>
-                      <TableCell>Conteúdo</TableCell>
+                      <TableCell>Atajo</TableCell>
+                      <TableCell>Contenido</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -304,6 +304,7 @@ const CampaignsConfig = () => {
         </Box>
       </Paper>
     </MainContainer>
+
   );
 };
 
