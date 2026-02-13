@@ -128,11 +128,11 @@ const CampaignReport = () => {
   const formatStatus = (val) => {
     switch (val) {
       case "INATIVA":
-        return "Inativa";
+        return "Inactiva";
       case "PROGRAMADA":
         return "Programada";
       case "EM_ANDAMENTO":
-        return "Em Andamento";
+        return "En Proceso";
       case "CANCELADA":
         return "Cancelada";
       case "FINALIZADA":
@@ -147,13 +147,13 @@ const CampaignReport = () => {
       <MainHeader>
         <Grid style={{ width: "99.6%" }} container>
           <Grid xs={12} item>
-            <Title>Relatório da {campaign.name || "Campanha"}</Title>
+            <Title>Informe de {campaign.name || "Campaña"}</Title>
           </Grid>
         </Grid>
       </MainHeader>
       <Paper className={classes.mainPaper} variant="outlined">
         <Typography variant="h6" component="h2">
-          Status: {formatStatus(campaign.status)} {delivered} de {validContacts}
+          Estado: {formatStatus(campaign.status)} {delivered} de {validContacts}
         </Typography>
         <Grid spacing={2} container>
           <Grid xs={12} item>
@@ -166,7 +166,7 @@ const CampaignReport = () => {
           <Grid xs={12} md={4} item>
             <CardCounter
               icon={<GroupIcon fontSize="inherit" />}
-              title="Contatos Válidos"
+              title="Contactos Válidos"
               value={validContacts}
               loading={loading}
             />
@@ -176,7 +176,7 @@ const CampaignReport = () => {
               <Grid xs={12} md={4} item>
                 <CardCounter
                   icon={<DoneIcon fontSize="inherit" />}
-                  title="Confirmações Solicitadas"
+                  title="Confirmaciones Solicitadas"
                   value={confirmationRequested}
                   loading={loading}
                 />
@@ -184,7 +184,7 @@ const CampaignReport = () => {
               <Grid xs={12} md={4} item>
                 <CardCounter
                   icon={<DoneAllIcon fontSize="inherit" />}
-                  title="Confirmações"
+                  title="Confirmaciones"
                   value={confirmed}
                   loading={loading}
                 />
@@ -194,7 +194,7 @@ const CampaignReport = () => {
           <Grid xs={12} md={4} item>
             <CardCounter
               icon={<CheckCircleIcon fontSize="inherit" />}
-              title="Entregues"
+              title="Entregados"
               value={delivered}
               loading={loading}
             />
@@ -203,7 +203,7 @@ const CampaignReport = () => {
             <Grid xs={12} md={4} item>
               <CardCounter
                 icon={<WhatsAppIcon fontSize="inherit" />}
-                title="Conexão"
+                title="Conexión"
                 value={campaign.whatsapp.name}
                 loading={loading}
               />
@@ -213,7 +213,7 @@ const CampaignReport = () => {
             <Grid xs={12} md={4} item>
               <CardCounter
                 icon={<ListAltIcon fontSize="inherit" />}
-                title="Lista de Contatos"
+                title="Lista de Contactos"
                 value={campaign.contactList.name}
                 loading={loading}
               />
@@ -222,7 +222,7 @@ const CampaignReport = () => {
           <Grid xs={12} md={4} item>
             <CardCounter
               icon={<ScheduleIcon fontSize="inherit" />}
-              title="Agendamento"
+              title="Programación"
               value={datetimeToClient(campaign.scheduledAt)}
               loading={loading}
             />
@@ -230,7 +230,7 @@ const CampaignReport = () => {
           <Grid xs={12} md={4} item>
             <CardCounter
               icon={<EventAvailableIcon fontSize="inherit" />}
-              title="Conclusão"
+              title="Conclusión"
               value={datetimeToClient(campaign.completedAt)}
               loading={loading}
             />
@@ -240,5 +240,6 @@ const CampaignReport = () => {
     </MainContainer>
   );
 };
+
 
 export default CampaignReport;
