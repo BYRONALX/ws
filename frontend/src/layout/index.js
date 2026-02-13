@@ -297,11 +297,11 @@ const LoggedInLayout = ({ children }) => {
           >
             {greaterThenSm && user?.profile === "admin" && user?.company?.dueDate ? (
               <>
-                Olá <b>{user.name}</b>, seja bem-vindo ao <b>{system.name}</b>! (Ativo até {dateToClient(user?.company?.dueDate)})
+                ¡Hola <b>{user.name}</b>, bienvenido a <b>{system.name}</b>! (Activo hasta {dateToClient(user?.company?.dueDate)})
               </>
             ) : (
               <>
-                Olá <b>{user.name}</b>, seja bem-vindo ao <b>{system.name}</b>!
+                ¡Hola <b>{user.name}</b>, bienvenido a <b>{system.name}</b>!
               </>
             )}
           </Typography>
