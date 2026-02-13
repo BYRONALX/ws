@@ -151,7 +151,7 @@ const Queues = () => {
   const handleDeleteQueue = async (queueId) => {
     try {
       await api.delete(`/queue/${queueId}`);
-      toast.success(i18n.t("Queue deleted successfully!"));
+      toast.success(i18n.t("¡Cola eliminada con éxito!"));
     } catch (err) {
       toastError(err);
     }
