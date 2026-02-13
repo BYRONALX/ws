@@ -114,7 +114,7 @@ const SignUp = () => {
 	const [user] = useState(initialState);
 	const dueDate = moment().add(3, "day").format();
 	const handleSignUp = async values => {
-		Object.assign(values, { recurrence: "MENSAL" });
+		Object.assign(values, { recurrence: "Mensual" });
 		Object.assign(values, { dueDate: dueDate });
 		Object.assign(values, { status: "t" });
 		Object.assign(values, { campaignsEnabled: true });
@@ -175,7 +175,7 @@ return (
 										variant="outlined"
 										fullWidth
 										id="name"
-										label="Nome da Empresa"
+										label="Nombre de la Empresa"
 									/>
 								</Grid>
 
@@ -215,7 +215,7 @@ return (
 										variant="outlined"
 										fullWidth
 										id="plan-selection"
-										label="Plano"
+										label="Plan"
 										name="planId"
 										required
 									>
