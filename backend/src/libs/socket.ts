@@ -14,7 +14,7 @@ export const initIO = (httpServer: Server): SocketIO => {
       origin: ["https://crm.gpsplataforma.net"],
       credentials: true
     },
-    transports: ["websocket", "polling"],
+    transports: ["polling"]
     allowEIO3: true
   });
   
