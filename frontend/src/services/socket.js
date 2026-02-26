@@ -7,9 +7,13 @@ export function socketConnection(params) {
     userId = localStorage.getItem("userId");
   }
   return openSocket(process.env.REACT_APP_BACKEND_URL, {
-    transports: ["websocket", "polling", "flashsocket"],
-    pingTimeout: 18000,
-    pingInterval: 18000,
-    query: isObject(params) ? { ...params, userId } : { userId },
+    transports: ["polling", "websocket"],
+    upgrade: true,
+    rememberUpgrade: false,
+    pingTimeout: 20000,
+    pingInterval: 25000,
+    query: isObject(params)
+      ? { ...params, userId }
+      : { userId },
   });
 }
