@@ -11,7 +11,7 @@ export const initIO = (httpServer: Server): SocketIO => {
 
   io = new SocketIO(httpServer, {
     cors: {
-      origin: true,
+      origin: ["https://crm.gpsplataforma.net"],
       credentials: true
     },
     transports: ["websocket", "polling"],
