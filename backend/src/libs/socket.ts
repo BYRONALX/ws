@@ -6,14 +6,18 @@ import User from "../models/User";
 
 let io: SocketIO;
 
+
 export const initIO = (httpServer: Server): SocketIO => {
+
   io = new SocketIO(httpServer, {
     cors: {
       origin: true,
       credentials: true
-    }
+    },
+    transports: ["websocket", "polling"],
+    allowEIO3: true
   });
-
+  
   io.on("connection", async socket => {
     logger.info("Client Connected");
     const { userId } = socket.handshake.query;
