@@ -79,11 +79,14 @@ const initSystem = async () => {
   }
 };
 
-const server = app.listen(process.env.PORT, async () => {
+const PORT = Number(process.env.PORT) || 8080;
+
+const server = app.listen(PORT, "0.0.0.0", async () => {
   await initSystem();
-  
+
   const companies = await Company.findAll();
   const allPromises: any[] = [];
+
   companies.map(async c => {
     const promise = StartAllWhatsAppsSessions(c.id);
     allPromises.push(promise);
@@ -92,7 +95,8 @@ const server = app.listen(process.env.PORT, async () => {
   Promise.all(allPromises).then(() => {
     startQueueProcess();
   });
-  logger.info(`Server started on port: ${process.env.PORT}`);
+
+  logger.info(`Server started on port: ${PORT}`);
 });
 
 initIO(server);
