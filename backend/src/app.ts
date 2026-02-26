@@ -17,6 +17,8 @@ Sentry.init({ dsn: process.env.SENTRY_DSN });
 
 const app = express();
 
+app.set("trust proxy", 1);
+
 app.set("queues", {
   messageQueue,
   sendScheduledMessages
