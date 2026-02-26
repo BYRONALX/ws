@@ -9,13 +9,12 @@ let io: SocketIO;
 
 export const initIO = (httpServer: Server): SocketIO => {
 
-   io = new SocketIO(httpServer, {
+  io = new SocketIO(httpServer, {
     cors: {
       origin: ["https://crm.gpsplataforma.net"],
       credentials: true
     },
-    transports: ["polling"],
-    allowEIO3: true
+    transports: ["polling", "websocket"]
   });
   
   io.on("connection", async socket => {
