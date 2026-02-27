@@ -24,16 +24,14 @@ app.set("queues", {
   sendScheduledMessages
 });
 
-app.use(
-  cors({
-    credentials: true,
-    origin: (origin, callback) => {
-        // PERMISSIVE MODE: Always allow.
-        // This reflects the origin header back to the client.
-        callback(null, true);
-    }
-  })
-);
+app.use(cors({
+  origin: ["https://crm.gpsplataforma.net"],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
+app.options("*", cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use(Sentry.Handlers.requestHandler());
